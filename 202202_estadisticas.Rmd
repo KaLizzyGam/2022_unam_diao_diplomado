@@ -724,7 +724,27 @@ Es interesante ver que los hombres (condicional hombres) tienen una probabilidad
 knitr::include_graphics("img/condition_plot.png")
 ```
 
+### Prueba de hipótesis con *R*
 
+Ejemplo de condición de bebedor entre hombres y mujeres:
+
+```{r}
+tabla1 <- as.table(rbind(c(1630, 550), c(1684, 8232)))
+dimnames(tabla1) <- list(Sexo = c("Hombre", "Mujer"),
+                    Bebedor_frecuente = c("Sí","No"))
+tabla1
+chisq.test(M)
+```
+
+Ejemplo de votación en USA entre hombres y mujeres
+
+```{r}
+tabla2 <- as.table(rbind(c(762, 327, 468), c(484, 239, 477)))
+dimnames(tabla2) <- list(gender = c("Femenino", "Masculino"),
+                    party = c("Demócrata","Independiente", "Republicano"))
+tabla2
+chisq.test(tabla2)
+```
 
 
 
