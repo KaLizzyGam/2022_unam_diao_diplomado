@@ -221,7 +221,7 @@ Ahora que hemos entendido lo que es una variable aleatorio y lo que hace una fun
 ## Distribución de probabilidad Binomial:
 Es una probabilidad discreta y se presenta con mucha frecuencia en nuestra vida cotidiana. Fue propuesta por Jakob Bernoulli (1654-1705), y es utilizada con acontecimientos que tengan respuesta binaria, generalmente clasificada como “éxito” o “fracaso”.
 
-###Propiedades de la distribución binomial
+### Propiedades de la distribución binomial
 Para que una variable aleatoria se considere que sigue una distribución binomial, tiene que cumplir las siguientes propiedades:
 
 * En cada ensayo, experimento o prueba solo son posibles dos resultados (éxito o fracaso).
@@ -232,7 +232,7 @@ Para que una variable aleatoria se considere que sigue una distribución binomia
 
 * La variable aleatoria que sigue una distribución binomial se suele representar como $ X~(n,p)$, donde $n$ representa el número de ensayos o experimentos y p la probabilidad de éxito.
 
-La fórmula para calcular la distribución normal es:
+La fórmula para calcular la distribución binomial es:
 
 
 ```{r echo=FALSE,fig.align='center', out.width='300pt'}
@@ -267,7 +267,7 @@ Algunos ejemplos donde se aplica esta distribución son:
 * Si el lanzamiento de una moneda sale cara en vez de sello.
 
 
-*Podemos realizar un ejercicio: *
+### Ejemplo
 
 Imaginemos que un 80% de personas en el mundo ha visto el partido de la final del último mundial de fútbol. Tras el evento, 4 amigos se reúnen a conversar, ¿Cuál es la probabilidad de que 3 de ellos hayan visto el partido?
 
@@ -304,12 +304,51 @@ Fuera del corchete tenemos dos números. El primero sería $ 0.8^3=0.512 $ y el 
 Por tanto, nuestro resultado final sería:  $ 4*0,512*0,2 = 0,4096.$ Si multiplicamos por 100 tenemos que hay una probabilidad del $ 40,96% $ de que 3 de los 4 amigos haya visto el partido de la final del mundial.
 
 
+### Ejercicio para la clase: 
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/matehamburguesa.jpeg")
+```
+
+
+La frecuencia con la que a un cliente no le gusta las hamburguesas de matehamburguesa es de dos cada diez.  Si vienen 3 nuevos clientes a la cafetería ¿cuál será la probabilidad de que solo a dos de ellos les guste la hamburguesa?
+
+
 
 ## Distribución de probabilidad de Poisson:
 Recibe su nombre gracias al matemático francés Simeón Denis Poisson (1781-1840). Describe el número de veces que se presenta un acontecimiento durante un intervalo específico, este intervalo puede ser de tiempo, distancia, área o volumen. La probabilidad de ocurrencia es proporcional a la longitud del intervalo. 
 
 La distribución de Poisson es una distribución de probabilidad discreta que modeliza la frecuencia de eventos determinados durante un intervalo de tiempo fijado a partir de la frecuencia media de aparición de dichos eventos.
 
+La fórmula para calcular la distribución Poisson es:
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/poison.png")
+```
+
+
+Dónde: 
+
+* $n$ El número de observaciones
+* $k$  =  Es es el número de ocurrencias del evento o fenómeno.
+* $\lambda $   = pepresenta el número de veces que se espera que ocurra el fenómeno durante un intervalo dado
+
+
+### Ejemplo
+
+
+Suponemos que estamos en temporada de invierno y queremos ir a esquiar antes de diciembre. La probabilidad que abran las estaciones de esquí antes de diciembre es del 5%. De las 100 estaciones de esquí, queremos saber la probabilidad de que la estación de esquí más cercana abra antes de diciembre. La valoración de esta estación de esquí es de 6 puntos.
+
+Los inputs necesarios para calcular la función de probabilidad de densidad de la Poisson son el conjunto de datos y $\lambda $: 
+
+Conjunto de datos = 100 estaciones de esquí.
+$\lambda = 5% * 100 = 5$ es el número de estaciones de esquí esperado dado el conjunto de datos.
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/ejemplopoison.png")
+```
 
 Algunos ejemplos donde se aplica esta distribución son:
 
@@ -318,6 +357,7 @@ Algunos ejemplos donde se aplica esta distribución son:
 * Cuando se requiere conocer el número de defectos en un lote de tela.
 * Número de accidentes automovilísticos en el año.
 * Número de llegadas de embarcaciones a un puerto por día.
+
 
 ## Distribución de probabilidad normal:
 La distribución de probabilidad normal es una de las más importantes en estadística y en el cálculo de probabilidades.
