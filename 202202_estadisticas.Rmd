@@ -525,7 +525,7 @@ La estadística inferencial que se encarga de realizar el cálculo de la probabi
 
 En el mundo actual, al momento de tomar una decisión, muy rara vez contamos con la información completa para hacerlo, es por eso que la inferencia estadística juega un papel fundamental en este caso, ya que a partir de una muestra significativa de una población (información limitada), inferimos propiedades de esta población y utilizando la teoría de probabilidades podemos analizar riesgos y reducirlos al mínimo.
 
-```{r echo=FALSE,fig.align='center'}
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
 knitr::include_graphics("img/CicloInferencia.jpeg")
 ```
 
@@ -540,28 +540,28 @@ Ahora bien, ¿qué es exactamente la probabilidad? La probabilidad es un valor e
 
 
 
-```{r echo=FALSE,fig.align='center'}
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
 knitr::include_graphics("img/ESCALA DE PROBABILIDAD.png")
 ```
 
 
 **Ejemplos: **
 
-```{r echo=FALSE,fig.align='center'}
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
 knitr::include_graphics("img/dados.png")
 ```
 
 
-```{r echo=FALSE,fig.align='center'}
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
 knitr::include_graphics("img/bolasejemplo.png")
 ```
 
 **¿Qué pasa con las variables continuas? **
 
-Esta gráfica representa los resultados de una escuesta  
+Esta gráfica representa los resultados de una encuesta sobre cociente intelectual...
 
 
-```{r echo=FALSE,fig.align='center'}
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
 knitr::include_graphics("img/ci-webescolar.jpeg")
 ```
 
@@ -569,6 +569,158 @@ knitr::include_graphics("img/ci-webescolar.jpeg")
 Teniendo presente los conceptos anteriores, podemos definir de una manera no formal una distribución de probabilidad como una lista que nos proporciona todos los resultados de los valores que pueden presentarse en un acontecimiento, junto con la probabilidad de ocurrencia asociada a cada uno de estos valores.
 
 Y para poder tener una distribución de probabilidad debemos tener una [Variable Aleatoria]() 
+
+## Variable Aleatoria
+
+Una variable aleatoria es una función que asigna un valor numérico, al resultado de un experimento aleatorio. Una variable aleatoria puede ser discreta o continua. Las variables aleatorias discretas son aquellas que presentan un número contable de valores; por ejemplo, el número de personas que viven en una casa (pueden ser 3, 5 o 9). Las variables aleatorias continuas son aquellas que presentan un número incontable de valores; por ejemplo, el peso de las vacas en una granja (una vaca puede pesar 632,12 kg, otra puede pesar 583,12312 kg, otra 253,12012 kg, otra 198,0876 kg y nunca terminaríamos de enumerar todos los posibles valores). Como estas definiciones son muy difíciles de entender a simple vista, vamos a explicarlas a detalle.
+
+
+Una variable aleatoria es una función que asigna un valor numérico, al resultado de un experimento aleatorio. Recordemos que el resultado de un experimento aleatorio depende del azar. Veamos los ejemplos.
+
+
+### Ejemplo 1: Variable discreta
+
+
+Tenemos una moneda que en sus caras tiene por un lado un gato y por el otro, un perro.
+
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA1_1.jpeg")
+```
+
+Vamos a realizar un experimento aleatorio que consiste en lanzar 2 monedas. Colocaremos los resultados en el siguiente gráfico:
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA1_2.jpeg")
+```
+
+Definimos nuestra variable aleatoria X:
+
+$X$ = número de perros.
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA1_3.jpeg")
+```
+
+
+Ten en cuenta que la variable aleatoria siempre va con letras mayúsculas (en este caso X), mientras que los valores de su rango siempre con letras minúsculas (en este caso x1  , x2 , x3).
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA1_4.jpeg")
+```
+
+
+Los valores del rango de esta variable aleatoria son:
+
+* $x_1$ = 0
+* $x_2$ = 1
+* $x_3$ = 2
+
+
+En el dominio de la función tenemos el espacio muestral, es decir, todos los resultados posibles de nuestro experimento aleatorio. Mientras que el rango tenemos un conjunto de números reales.
+
+
+### Ejemplo 2: Variable discreta 
+
+En un banco hay 3 cajeros automáticos. Vamos a realizar un experimento aleatorio que consiste en ir al banco a una hora al azar del día y ver qué cajeros están ocupados y qué cajeros están vacíos.
+
+Colocamos en el siguiente gráfico los resultados, los cajeros vacíos (V) irán de color rojo y los ocupados (O) de color verde.
+
+
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA2_1.jpeg")
+```
+
+
+Definimos nuestra variable aleatoria Y:
+
+* $Y$ = número de cajeros automáticos ocupados.
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA2_2.jpeg")
+```
+
+
+Ten en cuenta que la variable aleatoria siempre va con letras mayúsculas (en este caso Y), mientras que los valores de su rango siempre con letras minúsculas (en este caso  $y_1  , y_2 , y_3, y_4$ ).
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/VA2_3.jpeg")
+```
+
+
+Los valores del rango de esta variable aleatoria son:
+
+* $y_1$ = 0
+* $y_2$ = 1
+* $y_3$ = 2
+* $y_4$ = 3
+
+Las variables aleatorias se clasifican en discretas o continuas en función de los valores numéricos que asumen. Veamos esto a detalle. 
+
+
+
+### Ejemplo 1: Variable continua 
+
+
+Una variable aleatoria continua, es aquella que puede asumir un número incontable de valores.
+
+Por ejemplo, si realizamos el experimento de ir a mi granja y estudiamos las características de las vaquitas, podemos definir la variable aleatoria C:
+
+* $B$ = peso de una vaca en la granja de Jorge (en kilogramos).
+
+Alguna vaquita puede pesar 425,1872 kg; otra puede pesar 612,5874541 kg; otra puede pesar 545,897512121 kg. Si tomamos más vacas, podríamos tener más valores y nunca terminaríamos. 
+
+Se conoce que el becerro más pequeño tiene un peso de 30 kg, y la vaca más grande tiene un peso de 1000 kg.
+
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
+knitr::include_graphics("img/VA3_1.jpeg")
+```
+
+
+Y así, tendríamos un número incontable de valores para el rango de esta variable. El rango de esta variable puede ser cualquier valor dentro del intervalo que va desde 30 kg hasta 1000 kg. 
+
+Por ello, se trata de una variable aleatoria continua. 
+
+
+### Ejemplo 2: Variable continua 
+
+Si vamos a una agencia del banco y registramos los datos de atención a los clientes, podemos definir la variable aleatoria... Si! Tambien esto lo podemos volver una variable aleatoria. 
+
+
+* $D$ = tiempo de atención a los clientes del banco (en segundos).
+
+
+Un cliente puede ser atentido en 24,123 s; otro cliente en 72,32142 s; otro en 51,123123 s. Si seguimos tomando más clientes, tendríamos más valores. Se conoce además que el tiempo mínimo de atención en ventanilla es de 1 s y el tiempo máximo es de 240 s.
+
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
+knitr::include_graphics("img/VA3_2.jpeg")
+```
+
+
+Y así, tendríamos un número incontable de valores para el rango de esta variable. El rango de esta variable puede ser cualquier valor dentro del intervalo que va desde 1 s hasta 240 s. Por ello, se trata de una variable aleatoria continua. 
+
+En general, las variables aleatorias discretas representan datos que provienen del conteo del número de elementos, mientras que, las variables aleatorias continuas representan datos que provienen de mediciones, por ejemplo, tiempo, peso, longitud, etc. 
+
+
+
+Ahora que hemos entendido lo que es una variable aleatorio y lo que hace una función de probabilidad, podemos hablar de familias paramétricas :D 
+
+
+# Familias Paramétricas
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
