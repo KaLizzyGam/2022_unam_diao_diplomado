@@ -633,9 +633,100 @@ Las otras alternativas implican una incongruencia entre la realidad y los result
 
 Estos dos errores deben ser considerados al evaluar el resultado de un trabajo de investigación que haya empleado pruebas de hipótesis, considerando la posibilidad de un error I cuando los resultados son significativos y de un error tipo II cuando son no significativos. 
 
-## Ejemplo completo: Distribución de probabilidad asociada a una tabla de contingencia
+## Ejemplo completo: 
+#### Distribución de probabilidad asociada a una tabla de contingencia
 
-## Ejemplo completo: Prueba de hipótesis - Medida de asociación a una tabla de contingencia
+Consideremos únicamente una tabla de 2x2 con la relación que existe entre sexo y ser o no bebedor frecuente. La tabla es la siguiente:
+
+|         |       Bebedor frecuente |       |
+|---------|------|-------------------|-------|
+| Sexo    | Sí   | No                | Total |
+| Hombres | 1630 | 5550              | 7180  |
+| Mujeres | 1684 | 8232              | 9916  |
+| Total   | 3314 | 13782             | 17096 |
+
+La primera de nuestras tablas corresponde a la **Distribución conjunta**:
+
+En este caso tenemos dos variables categóricas, **X** (Sexo) y **Y** (Bebedor frecuente), con I=2 y J=2 categorías, respectivamente. Su distribución conjunta es la probabilidad de que un sujeto seleccionado aleatoriamente obtenga un valor en el renglón *i* y la columna *j*. Esto nos genera la tabla de probabilidad conjunta dada por:
+
+|         | Bebedor frecuente |
+|---------|------|-------------------|
+| Sexo    | Sí   | No                |
+| Hombres | $\pi_{11}$ | $\pi_{12}$              |
+| Mujeres | $\pi_{21}$ | $\pi_{22}$              |
+
+La forma de estimar estas probabilidades es:
+
+$$\pi_{ij}=\frac{n_{ij}}{n}; \quad i,j=1,2$$
+
+Con lo que generamos la tabla:
+
+|         | Bebedor frecuente |
+|---------|------ |-----------|
+| Sexo    | Sí    | No        |
+| Hombres | 0.095 | 0.325     |
+| Mujeres | 0.099 | 0.482     |
+
+Podemos interpretar las probabilidades anteriores como sigue: "De la muestra realizadas, la probabilidad estimada de que una mujer no sea bebedora frecuente es $\pi_{22}=0.482=48.2%$".
+
+La segunda tabla a analizar corresponde a la **distribución marginal**
+
+Las distribuciones marginales son las sumas por renglón o por columna conjuntas. En concreto:
+
+$$\pi_{i.}=\pi_{i1}+\pi_{i2}=\sum_j\pi_{ij} \quad y \quad \pi_{.j}=\pi_{1j}+\pi_{2j}=\sum_i\pi_{ij}; \quad i,j=1,2$$
+Con la tabla de distribuciones dada por:
+
+|         |       Bebedor frecuente |       |
+|---------|------|-------------------|-------|
+| Sexo    | Sí   | No                | Total |
+| Hombres | $\pi_{11}$ | $\pi_{12}$              | $\pi_{1.}$  |
+| Mujeres | $\pi_{21}$ | $\pi_{22}$              | $\pi_{2.}$  |
+| Total   | $\pi_{.1}$ | $\pi_{.2}$             | 1 |
+
+Además tenemos que las sumas de todas las celdas en la distribución conjunta, es igual a la unidad, así como la suma se las probabilidades marginales de las filas o las columnas.
+
+$$\sum_{i}\pi_{i.}=\sum_{j}\pi_{.j}=\sum_i\sum_j\pi_{ij}=1$$
+Con nuestros datos esta tabla queda como:
+
+|         |       Bebedor frecuente |       |
+|---------|------|-------------------|-------|
+| Sexo    | Sí   | No                | Total |
+| Hombres | 0.095 | 0.325              | 0.42  |
+| Mujeres | 0.099 | 0.482              | 0.58  |
+| Total   | 0.194 | 0.806             | 1 |
+
+La última de las distribuciones asociada a una tabla de contingencia son las **distribuciones condicionales**. 
+
+Cuando una de las variables de respuesta (**Y**) y la otra es explicativa (**X**), entonces es conveniente saber cuál es la distribución de probabilidad de la respuesta, **Y**, para cada nivel de la variable explicativa, **X**, Estas distribuciones consisten en probabilidades condicionales de **Y**, dado su nivel de **X**, y se conocen como distribuciones condicionales.
+
+El conjunto de probabilidades ${\pi_{1|i}, \pi_{2|i}}$ constituyen la distribución conjunta condicional de **Y** en cada categoría de *i* de **X**. La tabla de distribuciones es la siguiente:
+
+|         | Bebedor frecuente |
+|---------|------|-------------------|
+| Sexo    | Sí   | No                |
+| Hombres | $\pi_{1|1}$ | $\pi_{1|2}$              |
+| Mujeres | $\pi_{2|1}$ | $\pi_{2|2}$              |
+
+Estas probabilidades estimadas están dadas por:
+
+$$\hat{\pi}_{j|i}=\frac{\hat{\pi}_{ij}}{\hat{\pi}_{i.}}=\frac{\frac{n_{ij}}{n}}{\frac{n_{i.}}{n}}=\frac{n_{ij}}{n_{i.}} \quad i,j=1,2$$
+En nuestro caso, esta tabla queda de la siguiente forma
+
+|         | Bebedor frecuente | |
+|---------|------|-------------------|--|
+| Sexo    | Sí   | No                | Total  |
+| Hombres | 0.2270195 | 0.7729805  | 1 |
+| Mujeres | 0.1698265 | 0.8301735  | 1 |
+
+Es interesante ver que los hombres (condicional hombres) tienen una probabilidad estimada mayor a ser bebedores frecuentes que las mujeres (condicional mujer). Observemos también que las distribuciones condicionales por sexo, no son muy diferentes. No obstante, aún no tenemos elementos para decidir de manera formal si son o no diferentes.
+
+```{r echo=FALSE,fig.align='center'}
+knitr::include_graphics("img/condition_plot.png")
+```
+
+
+
+
 
 # Referencias
 1. Altman DG. Practical Statistics for Medical Research. London: Chapman & Hall, 1991.
