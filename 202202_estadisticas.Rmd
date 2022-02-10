@@ -898,6 +898,52 @@ tabla2
 chisq.test(tabla2)
 ```
 
+### Intervalos de confianza
+
+Un intervalo de confianza es un **rango de valores**, derivado de los estadísticos de la muestra, que **posiblemente incluya el valor de un parámetro de población desconocido**. Debido a su naturaleza aleatoria, es poco probable que dos muestras de una población en particular produzcan intervalos de confianza idénticos. Sin embargo, si repetimos muchas veces la extracción de una muestra, un determinado porcentaje de los intervalos de confianza resultantes incluiría el parámetro de población desconocido.
+
+```{r echo=FALSE,fig.align='center'}
+knitr::include_graphics("img/ic.png")
+```
+
+En este caso, la línea negra horizontal representa el valor fijo de la media desconocida de la población, $\mu$. Los intervalos de confianza azules verticales que se sobreponen a la línea horizontal contienen el valor de la media de la población. El intervalo de confianza rojo que está completamente por debajo de la línea horizontal no lo contiene. Un intervalo de confianza de 95% indica que 19 de 20 muestras (95%) de la misma población producirán intervalos de confianza que contendrán el parámetro de población.
+
+La forma de calcular un intervalo de confianza es la siguiente:
+
+$$IC_{\bar{x}}=\bar{x}\pm Z_{1-\alpha/2}*\sigma_x$$
+
+Supongamos que tenemos una medición sobre la estatura de 1000 hombres adultos. Se almacena esta información en **X**
+
+```{r, warning=F, message=FALSE}
+set.seed(12345)
+X <- rnorm(1000, mean = 172, sd = 5)
+
+hist(X, col = "blue", main = "Histograma de estatura de hombres")
+```
+
+Para extraer la media $\bar{x}$ y desviación estandar $\sigma_x$ usamos los siguiente, se usa: $\frac{1}{n}\sum_{i=1}^{n}x_i$ y $\sqrt{\frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})²}$ 
+
+```{r}
+x_media <- mean(X)
+x_media
+
+x_sd <- sd(X)
+x_sd
+
+Z95 <- qnorm(0.975)
+Z95
+
+Z90 <- qnorm(0.95)
+Z90
+
+IC95 <- c(x_media - Z95*x_sd, x_media + Z95*x_sd)
+IC95
+
+IC90 <- c(x_media - Z90*x_sd, x_media + Z90*x_sd)
+IC90
+```
+
+
 
 
 # Referencias
