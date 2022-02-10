@@ -218,11 +218,130 @@ Ahora que hemos entendido lo que es una variable aleatorio y lo que hace una fun
 
 
 
+## Distribución de probabilidad Binomial:
+Es una probabilidad discreta y se presenta con mucha frecuencia en nuestra vida cotidiana. Fue propuesta por Jakob Bernoulli (1654-1705), y es utilizada con acontecimientos que tengan respuesta binaria, generalmente clasificada como “éxito” o “fracaso”.
+
+###Propiedades de la distribución binomial
+Para que una variable aleatoria se considere que sigue una distribución binomial, tiene que cumplir las siguientes propiedades:
+
+* En cada ensayo, experimento o prueba solo son posibles dos resultados (éxito o fracaso).
+* La *probabilidad del éxito ha de ser constante*. Esta se representa mediante la letra $p$. La probabilidad de que salga cara al lanzar una moneda es 0,5 y esta es constante dado que la moneda no cambia en cada experimento y las probabilidades de sacar cara son constantes.
+* La *probabilidad de fracaso ha de ser también constate*. Esta se representa mediante la letra $q = 1-p$. * Es importante fijarse que mediante esa ecuación, sabiendo p o sabiendo q, podemos obtener la que nos falte.
+* El resultado obtenido en *cada experimento es independiente del anterior.* Por lo tanto, lo que ocurra en cada experimento no afecta a los siguientes.
+* Los *sucesos son mutuamente excluyentes*, es decir, no pueden ocurrir los 2 al mismo tiempo. No se puede ser hombre y mujer al mismo tiempo o que al lanzar una moneda salga cara y cruz al mismo tiempo.
+
+* La variable aleatoria que sigue una distribución binomial se suele representar como $ X~(n,p)$, donde $n$ representa el número de ensayos o experimentos y p la probabilidad de éxito.
+
+La fórmula para calcular la distribución normal es:
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/binomial.jpeg")
+```
+
+Donde:
+
+$n$   = Número de ensayos/experimentos
+
+$x$    = Número de éxitos
+
+$p$    = Probabilidad de éxito
+
+$q$    = Probabilidad de fracaso (1-p)
+
+Es importante resaltar que la expresión entre corchetes no es una expresión matricial, sino que es un resultado de una combinatoria sin repetición. Este se obtiene con la siguiente formula:
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/combinatoria.jpeg")
+```
+
+El signo de exclamación en la expresión anterior representa el símbolo de factorial.
+
+
+Algunos ejemplos donde se aplica esta distribución son:
+
+* Si una persona presenta o no una enfermedad.
+* Si una mujer se encuentra en estado de embarazo.
+* Que un producto sea exitoso o no.
+* Que un vuelo se retrase o no.
+* Si el lanzamiento de una moneda sale cara en vez de sello.
+
+
+*Podemos realizar un ejercicio: *
+
+Imaginemos que un 80% de personas en el mundo ha visto el partido de la final del último mundial de fútbol. Tras el evento, 4 amigos se reúnen a conversar, ¿Cuál es la probabilidad de que 3 de ellos hayan visto el partido?
+
+Definamos las variables del experimento:
+
+* $n$    = 4 (es el total de la muestra que tenemos)
+
+* $x$   = número de éxitos, que en este caso es igual a 3, dado que buscamos la probabilidad de que 3 de los 4 amigos lo hayan visto.
+
+* $p$    = probabilidad de éxito (0,8)
+
+* $q$    = probabilidad de fracaso (0,2). Este resultado se obtiene al restar 1-p.
+
+Tras definir todas nuestras variables, simplemente sustituimos en la formula.
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/binomial.jpeg")
+```
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/combinatoria.jpeg")
+```
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/ejemplo-binomial.jpeg")
+```
+
+El numerador del factorial se obtendría de multiplicar $4*3*2*1 = 24$ y en el denominador tendríamos $ 3*2*1*1 = 6.$ Por lo tanto, el resultado del factorial sería $ 24/6=4. $
+Fuera del corchete tenemos dos números. El primero sería $ 0.8^3=0.512 $ y el segundo $0.2$ (dado que $4-3 = 1$ y cualquier número elevado a $1$ es el mismo).
+
+Por tanto, nuestro resultado final sería:  $ 4*0,512*0,2 = 0,4096.$ Si multiplicamos por 100 tenemos que hay una probabilidad del $ 40,96% $ de que 3 de los 4 amigos haya visto el partido de la final del mundial.
+
+
+
+## Distribución de probabilidad de Poisson:
+Recibe su nombre gracias al matemático francés Simeón Denis Poisson (1781-1840). Describe el número de veces que se presenta un acontecimiento durante un intervalo específico, este intervalo puede ser de tiempo, distancia, área o volumen. La probabilidad de ocurrencia es proporcional a la longitud del intervalo. 
+
+La distribución de Poisson es una distribución de probabilidad discreta que modeliza la frecuencia de eventos determinados durante un intervalo de tiempo fijado a partir de la frecuencia media de aparición de dichos eventos.
+
+
+Algunos ejemplos donde se aplica esta distribución son:
+
+* El número de vehículos que vende por día un concesionario.
+* Cantidad de llamadas por hora que recibe una compañía.
+* Cuando se requiere conocer el número de defectos en un lote de tela.
+* Número de accidentes automovilísticos en el año.
+* Número de llegadas de embarcaciones a un puerto por día.
+
+## Distribución de probabilidad normal:
+La distribución de probabilidad normal es una de las más importantes en estadística y en el cálculo de probabilidades.
+
+Fue utilizada por Carl Friedich Gauss (1777-1855) al escribir un libro sobre el movimiento de los cuerpos celestes, por este motivo también es conocida como distribución Gaussiana.
+
+Es importante debido a que el teorema central del límite implica que esta distribución es casi universal y la podemos encontrar en todos los campos de las ciencias empíricas tales como: biología, física, psicología, economía, etc.
+
+Distribución de probabilidad
+
+Tiene una forma de campana, es simétrica y su área bajo la curva es 1.
+
+Como se mencionaba anteriormente la aplicación de esta distribución de probabilidad es muy amplia. Algunos ejemplos son:
+
+El efecto de un medicamento o fármaco.
+El cambio de temperatura en una época del año específica.
+Caracteres morfológicos como el peso o la estatura en un grupo de individuos.
 
 
 
 
+## Distribución de probabilidad Ji-cuadrada:
 
+## Distribución de probabilidad T-Student:
 
 
 
@@ -381,6 +500,30 @@ Es interesante ver que los hombres (condicional hombres) tienen una probabilidad
 
 ```{r echo=FALSE,fig.align='center'}
 knitr::include_graphics("img/condition_plot.png")
+```
+
+
+
+### Prueba de hipótesis con *R*
+
+Ejemplo de condición de bebedor entre hombres y mujeres:
+
+```{r}
+tabla1 <- as.table(rbind(c(1630, 550), c(1684, 8232)))
+dimnames(tabla1) <- list(Sexo = c("Hombre", "Mujer"),
+                    Bebedor_frecuente = c("Sí","No"))
+tabla1
+chisq.test(tabla1)
+```
+
+Ejemplo de votación en USA entre hombres y mujeres
+
+```{r}
+tabla2 <- as.table(rbind(c(762, 327, 468), c(484, 239, 477)))
+dimnames(tabla2) <- list(gender = c("Femenino", "Masculino"),
+                    party = c("Demócrata","Independiente", "Republicano"))
+tabla2
+chisq.test(tabla2)
 ```
 
 

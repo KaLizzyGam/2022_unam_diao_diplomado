@@ -885,7 +885,7 @@ tabla1 <- as.table(rbind(c(1630, 550), c(1684, 8232)))
 dimnames(tabla1) <- list(Sexo = c("Hombre", "Mujer"),
                     Bebedor_frecuente = c("Sí","No"))
 tabla1
-chisq.test(M)
+chisq.test(tabla1)
 ```
 
 Ejemplo de votación en USA entre hombres y mujeres
