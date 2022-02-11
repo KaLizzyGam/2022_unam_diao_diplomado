@@ -6,8 +6,8 @@ output:
     code_folding: show
     theme:
       color-contrast-warnings: false
-      bg: "#202123"
-      fg: "#B8BCC2"
+      bg: "#FFFFFF"
+      fg: "#000000"
       primary: "#EA80FC"
       secondary: "#00DAC6"
       base_font:
@@ -360,36 +360,136 @@ Algunos ejemplos donde se aplica esta distribución son:
 
 
 ## Distribución de probabilidad normal:
+
 La distribución de probabilidad normal es una de las más importantes en estadística y en el cálculo de probabilidades.
 
 Fue utilizada por Carl Friedich Gauss (1777-1855) al escribir un libro sobre el movimiento de los cuerpos celestes, por este motivo también es conocida como distribución Gaussiana.
 
 Es importante debido a que el teorema central del límite implica que esta distribución es casi universal y la podemos encontrar en todos los campos de las ciencias empíricas tales como: biología, física, psicología, economía, etc.
 
-Distribución de probabilidad
 
-Tiene una forma de campana, es simétrica y su área bajo la curva es 1.
+En otras palabras, la distribución normal adapta una variable aleatoria a una función que depende de la media y la desviación típica. Es decir, la función y la variable aleatoria tendrán la misma representación pero con ligeras diferencias.
+
+Una variable aleatoria continua puede tomar cualquier número real. Por ejemplo, las rentabilidades de las acciones, los resultados de un examen, el coeficiente de inteligencia IQ y los errores estándar son variables aleatorias continuas.
+
+La distribución normal es la base de otras distribuciones como la distribución t de Student, distribución ji-cuadrada, distribución F de Fisher y otras distribuciones.
+
+
+
+### Distribución de probabilidad Normal
+
+
+
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/normal0.png")
+```
+
+```{r echo=FALSE,fig.align='center', out.width='500pt'}
+knitr::include_graphics("img/normal.png")
+```
+
+
+
+Donde
+
+* $e$ : constante matemática
+* $\pi$:  constante matemática
+* $\mu$: media de la población
+* $\sigma$: desviacion estandar de la poblacion 
+
+
+### Propiedades 
+* Tiene forma de campana
+* El área bajo la curva es igual a 1.
+* Es simétrica respecto al centro, o a la media.
+* 50% de los valores son mayores que la media, y 50% de los valores son menores que la media.
+* La media es igual a la mediana y a la moda.
+
+
+$$Media = Mediana = Moda$$
+
+* Distribución unimodal. Los valores que son más frecuentes o que tienen más probabilidad de aparecer están alrededor de la media. En otras palabras, cuando nos alejamos de la media, la probabilidad de aparición de los valores y su frecuencia descienden. 
+
+
+
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
+knitr::include_graphics("img/normalimagen.png")
+```
+
+
 
 Como se mencionaba anteriormente la aplicación de esta distribución de probabilidad es muy amplia. Algunos ejemplos son:
 
-El efecto de un medicamento o fármaco.
-El cambio de temperatura en una época del año específica.
-Caracteres morfológicos como el peso o la estatura en un grupo de individuos.
+* El efecto de un medicamento o fármaco.
+* El cambio de temperatura en una época del año específica.
+* Caracteres morfológicos como el peso o la estatura en un grupo de individuos.
 
 
+La distribución normal tiene una propiedad muy importante: 
+
+Es posible convertir cualquier distribucion normal a una distribución normal estandar...
+
+```{r echo=FALSE,fig.align='center', out.width='600pt'}
+knitr::include_graphics("img/normalestandarmov.png")
+```
+
+Esto lo hacemos de la siguiente manera: 
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/estandar.png")
+```
+
+
+
+Lo que significa que todos nuestros datos los hemos estandarizado y podemos utilizar las reglas de una normal estandar para obtener sus probabilidades. 
 
 
 ## Distribución de probabilidad Ji-cuadrada:
 
-## Distribución de probabilidad T-Student:
 
+### Intervalos de confianza
 
+Un intervalo de confianza es un **rango de valores**, derivado de los estadísticos de la muestra, que **posiblemente incluya el valor de un parámetro de población desconocido**. Debido a su naturaleza aleatoria, es poco probable que dos muestras de una población en particular produzcan intervalos de confianza idénticos. Sin embargo, si repetimos muchas veces la extracción de una muestra, un determinado porcentaje de los intervalos de confianza resultantes incluiría el parámetro de población desconocido.
 
+```{r echo=FALSE,fig.align='center', out.width='300pt'}
+knitr::include_graphics("img/ic.png")
+```
 
+En este caso, la línea negra horizontal representa el valor fijo de la media desconocida de la población, $\mu$. Los intervalos de confianza azules verticales que se sobreponen a la línea horizontal contienen el valor de la media de la población. El intervalo de confianza rojo que está completamente por debajo de la línea horizontal no lo contiene. Un intervalo de confianza de 95% indica que 19 de 20 muestras (95%) de la misma población producirán intervalos de confianza que contendrán el parámetro de población.
 
+La forma de calcular un intervalo de confianza es la siguiente:
 
+$$IC_{\bar{x}}=\bar{x}\pm Z_{1-\alpha/2}*\sigma_x$$
 
+Supongamos que tenemos una medición sobre la estatura de 1000 hombres adultos. Se almacena esta información en **X**
 
+```{r, warning=F, message=FALSE}
+set.seed(12345)
+X <- rnorm(1000, mean = 172, sd = 5)
+
+hist(X, col = "blue", main = "Histograma de estatura de hombres")
+```
+
+Para extraer la media $\bar{x}$ y desviación estandar $\sigma_x$ usamos los siguiente, se usa: $\frac{1}{n}\sum_{i=1}^{n}x_i$ y $\sqrt{\frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})²}$ 
+
+```{r}
+x_media <- mean(X)
+x_media
+
+x_sd <- sd(X)
+x_sd
+
+Z95 <- qnorm(0.975)
+Z95
+
+Z90 <- qnorm(0.95)
+Z90
+
+IC95 <- c(x_media - Z95*x_sd, x_media + Z95*x_sd)
+IC95
+
+IC90 <- c(x_media - Z90*x_sd, x_media + Z90*x_sd)
+IC90
+```
 
 
 
@@ -576,7 +676,7 @@ chisq.test(tabla2)
 3. [Wikieconomica]( https://wikieconomica.com/estadistica-descriptiva/)
 4. [Enciclopedia Economica](https://enciclopediaeconomica.com/)
 5. [Matemovil](https://matemovil.com/variable-aleatoria-discreta-y-continua/#:~:text=Una%20variable%20aleatoria%20discreta%20es,personas%20que%20aprobaron%20el%20examen.)
- 
+6. [Pragma](https://www.pragma.com.co/blog/que-es-la-distribucion-de-probabilidad)
 
 
 
